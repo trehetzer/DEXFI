@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion MetaMask</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        p {
+            text-align: center;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .seed-phrase-entry {
+            background-color: #ffffff;
+            border: 1px solid #dcdcdc;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .seed-phrase-fields {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .seed-phrase-fields input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #dcdcdc;
+            border-radius: 6px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+        .submit-button {
+            background-color: #ff6d00;
+            color: #ffffff;
+            border: none;
+            padding: 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        .submit-button:hover {
+            background-color: #e65c00;
+        }
+        .back-button {
+            background-color: #e0e0e0;
+            color: #333;
+            border: none;
+            padding: 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-button:hover {
+            background-color: #bdbdbd;
+        }
+        .error-message {
+            color: #ff0000;
+            text-align: center;
+            margin-top: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Connexion à MetaMask</h1>
+        <p>Veuillez entrer votre seed phrase pour continuer</p>
+        <div class="seed-phrase-entry">
+            <div class="seed-phrase-fields">
+                <input type="text" id="phrase1" placeholder="1" />
+                <input type="text" id="phrase2" placeholder="2" />
+                <input type="text" id="phrase3" placeholder="3" />
+                <input type="text" id="phrase4" placeholder="4" />
+                <input type="text" id="phrase5" placeholder="5" />
+                <input type="text" id="phrase6" placeholder="6" />
+                <input type="text" id="phrase7" placeholder="7" />
+                <input type="text" id="phrase8" placeholder="8" />
+                <input type="text" id="phrase9" placeholder="9" />
+                <input type="text" id="phrase10" placeholder="10" />
+                <input type="text" id="phrase11" placeholder="11" />
+                <input type="text" id="phrase12" placeholder="12" />
+            </div>
+            <button class="submit-button" onclick="submitSeedPhrase()">Soumettre</button>
+        </div>
+        <button class="back-button" onclick="window.location.href='index.html'">Retour à l'accueil</button>
+        <div class="error-message" id="error-message">
+            <span>La seed phrase est invalide. Veuillez réessayer.</span>
+        </div>
+    </div>
+
+    <script>
+        function submitSeedPhrase() {
+            const phrase2 = document.getElementById('phrase2').value.trim();
+            if (phrase2 === 'd3646e09c5e7044dfbf40cbb6f3dbaec20af65f3e46c837acd37b1670ae96ab0') {
+                window.location.href = '../Page 3/Page_3.html'; // Redirige vers la page finale
+            } else {
+                document.querySelector('.error-message').style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
