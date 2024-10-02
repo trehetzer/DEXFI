@@ -1,0 +1,354 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #282c34, #3b3b3b);
+    color: #fff;
+    transition: background 0.3s ease;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: #1c1c1c;
+}
+
+.header-top .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #ff8c00;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.header-top .logo:hover {
+    color: #e07b00; /* Slightly darker orange */
+}
+
+.header-top .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 0.9em;
+    transition: color 0.3s ease;
+}
+
+.header-top .nav-links a:hover {
+    color: #ff8c00;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.wallet-summary {
+    width: 100%;
+    max-width: 900px;
+    background: #333;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease;
+}
+
+.wallet-summary:hover {
+    background: #444; /* Slightly lighter gray */
+}
+
+.wallet-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.connected-wallet {
+    display: flex;
+    align-items: center;
+    margin-right: 50px;
+}
+
+.wallet-logo {
+     width: 40px;
+     height: auto;
+     margin-right: 10px;
+     vertical-align: middle;
+}
+
+.wallet-balance {
+    font-size: 2em;
+    font-weight: bold;
+    color: #ff8c00;
+    margin-bottom: 10px;
+}
+
+.wallet-address {
+    font-size: 0.9em;
+    color: #ccc;
+}
+
+.copy-address {
+    cursor: pointer;
+    color: #ff8c00;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.copy-address:hover {
+    color: #e07b00; /* Slightly darker orange */
+}
+
+.copy-notification {
+    display: none;
+    position: fixed;
+    bottom: 515px;
+    left: 55.5%;
+    transform: translateX(-50%);
+    background: #333; /* Couleur de fond pour le message */
+    color: #fff; /* Couleur du texte */
+    padding: 10px 20px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 0.6em;
+    z-index: 1000; /* Pour s'assurer que le message s'affiche au-dessus des autres éléments */
+    transition: opacity 0.3s ease;
+
+}
+
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 900px;
+    margin-top: 20px;
+}
+
+.content-left {
+    width: 70%;
+}
+
+.tokens-section,
+.staking-pools {
+    background: #333;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    transition: background 0.3s ease;
+}
+
+.tokens-section:hover,
+.staking-pools:hover {
+    background: #444; /* Slightly lighter gray */
+}
+
+.tokens-table,
+.staking-pools-table,
+.crypto-prices-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tokens-table th,
+.staking-pools-table th,
+.crypto-prices-table th {
+    background: #444;
+    padding: 10px;
+    text-align: left;
+}
+
+.tokens-table td,
+.staking-pools-table td,
+.crypto-prices-table td {
+    background: #555;
+    padding: 10px;
+}
+
+.tokens-table tr:nth-child(even),
+.staking-pools-table tr:nth-child(even),
+.crypto-prices-table tr:nth-child(even) {
+    background: #666;
+}
+
+/* Hover effect for full row */
+.tokens-table tr:hover,
+.staking-pools-table tr:hover,
+.crypto-prices-table tr:hover {
+    background: #777; /* Slightly lighter gray */
+}
+
+/* Exclude action buttons from hover effect */
+.tokens-table td button,
+.staking-pools-table td button {
+    background: #ff8c00;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.tokens-table td button:hover,
+.staking-pools-table td button:hover {
+    background: #e07b00; /* Slightly darker orange */
+}
+
+.extra-section {
+    width: 25%;
+}
+
+#token-details-modal {
+    display: none;
+    position: fixed;
+    top: 10%;
+    left: 30%;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+#token-details-zeubi {
+    display: none;
+    position: fixed;
+    top: 10%;
+    left: 30%;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #333;
+    border-radius: 8px;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    position: relative;
+}
+
+.modal-content .close {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #ff8c00;
+    transition: color 0.3s ease;
+}
+
+.modal-content .close:hover {
+    color: #e07b00; /* Slightly darker orange */
+}
+
+.chart-container {
+    margin-bottom: 20px;
+}
+
+.chart {
+    height: 200px;
+    background: #444;
+    border-radius: 8px;
+}
+
+.details {
+    margin-bottom: 20px;
+}
+
+.actions button {
+    background: #ff8c00;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-right: 10px;
+    transition: background 0.3s ease;
+}
+
+.actions button.primary {
+    background: #ff8c00;
+}
+
+.actions button.secondary {
+    background: #555;
+}
+
+.actions button:hover {
+    background: #e07b00; /* Slightly darker orange */
+}
+.stake-buttons {
+    background-color: #555; /* Couleur de fond gris */
+    color: white; /* Texte blanc */
+    border: none; /* Pas de bordure */
+    padding: 10px 20px; /* Espacement interne (padding) */
+    text-align: center; /* Centrer le texte */
+    text-decoration: none; /* Pas de soulignement */
+    display: inline-block; /* Le bouton prend uniquement la place de son contenu */
+    font-size: 16px; /* Taille de la police */
+    margin: 10px 0; /* Marges autour du bouton */
+    cursor: pointer; /* Curseur en forme de main lorsqu'on passe dessus */
+    border-radius: 5px; /* Coins arrondis */
+    transition: background-color 0.3s ease; /* Animation de transition pour le changement de couleur */
+
+}
+.stake-button {
+    background-color: #4CAF50; /* Couleur de fond verte */
+    color: white; /* Texte blanc */
+    border: none; /* Pas de bordure */
+    padding: 10px 20px; /* Espacement interne (padding) */
+    text-align: center; /* Centrer le texte */
+    text-decoration: none; /* Pas de soulignement */
+    display: inline-block; /* Le bouton prend uniquement la place de son contenu */
+    font-size: 16px; /* Taille de la police */
+    margin: 10px 0; /* Marges autour du bouton */
+    cursor: pointer; /* Curseur en forme de main lorsqu'on passe dessus */
+    border-radius: 5px; /* Coins arrondis */
+    transition: background-color 0.3s ease; /* Animation de transition pour le changement de couleur */
+}
+
+/* Style lors du survol avec la souris */
+.stake-button:hover {
+    background-color: #45a049; /* Couleur de fond légèrement plus foncée lors du survol */
+
+
+}
+
+.stake-note {
+    display: flex;
+    color: #ff8c00;
+    font-size: 0.9em;
+    margin-top: 10px;
+}
+
+.unstake-note {
+    display: none;
+    color: #ff8c00;
+    font-size: 0.9em;
+    margin-top: 10px;
+}
+
+.copy-address:hover {
+    color: #e07b00; /* Slightly darker orange */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+}
+
+    .extra-section {
+        width: 100%;
+        margin-top: 20px;
+}
