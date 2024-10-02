@@ -42,25 +42,25 @@
         </div>
 <script>
 function copyAddress() {
-    // Sélectionner l'élément contenant l'adresse
+    
     const addressText = document.getElementById('wallet-address-text').textContent;
 
-    // Créer un élément textarea temporaire pour utiliser la méthode de copie
+    
     const tempTextArea = document.createElement('textarea');
     tempTextArea.value = addressText;
     document.body.appendChild(tempTextArea);
 
-    // Sélectionner le texte et le copier dans le presse-papiers
+    
     tempTextArea.select();
     document.execCommand('copy');
 
-    // Retirer l'élément textarea temporaire
+    
     document.body.removeChild(tempTextArea);
 
     const notification = document.getElementById('copy-notification');
     notification.style.display = 'block';
 
-    // Cacher le message de confirmation après 2 secondes
+    
     setTimeout(() => {
         notification.style.display = 'none';
     }, 2000);
@@ -205,7 +205,7 @@ function copyAddress() {
 <p class="unstake-note" style="display: none;">Vous devez déposer un minimum de 0.43 ETH sur le wallet pour couvrir les frais de retrait.</p>
 
 <script>
-// Sélectionner les boutons et les notes
+
 const unstakeButton = document.querySelector('.secondary');
 
 const unstakeNotes = document.querySelector('.unstake-note');
@@ -219,7 +219,7 @@ unstakeButton.addEventListener('click', function() {
 
 
 
-    <!-- Script to Fetch Crypto Prices -->
+    
     <script>
         async function fetchCryptoPrices() {
             try {
@@ -251,7 +251,7 @@ unstakeButton.addEventListener('click', function() {
         
         fetchCryptoPrices();
         
-        // Show modal when clicking on WETH
+        
         document.querySelectorAll('.clickable').forEach(item => {
             item.addEventListener('click', function() {
                 if (this.dataset.token === 'weth') {
@@ -262,12 +262,12 @@ unstakeButton.addEventListener('click', function() {
         });
 
 	
-        // Close modal functionality
+        
         document.querySelector('.modal .close').addEventListener('click', function() {
             document.getElementById('token-details-modal').style.display = 'none';
         });
 
-        // Close modal when clicking outside of the modal
+        
         window.onclick = function(event) {
             if (event.target.classList.contains('modal')) {
                 document.getElementById('token-details-modal').style.display = 'none';
