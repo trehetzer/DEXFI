@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion MetaMask</title>
+    
+    <style>
+
+        body {
+    font-family: 'Montserrat', sans-serif;
+    padding: 0;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #1a1a1d;
+    overflow: hidden;
+    position: relative;
+
+        }
+        .container {
+            width: 90%;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        p {
+            text-align: center;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .seed-phrase-entry {
+            background-color: #ffffff;
+            border: 1px solid #dcdcdc;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .seed-phrase-fields {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .seed-phrase-fields input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #dcdcdc;
+            border-radius: 6px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+        .submit-button {
+            background-color: #ff6d00;
+            color: #ffffff;
+            border: none;
+            padding: 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        .submit-button:hover {
+            background-color: #e65c00;
+        }
+        .back-button {
+            background-color: #e0e0e0;
+            color: #333;
+            border: none;
+            padding: 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-button:hover {
+            background-color: #bdbdbd;
+        }
+        .error-message {
+            color: #ff0000;
+            text-align: center;
+            margin-top: 20px;
+            display: none;
+        }
+      
+
+/* Background with a stylish gradient and subtle animations */
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ff6b6b, #f06595);
+    z-index: -1;
+    animation: gradientAnimation 15s ease infinite;
+}
+
+/* Smooth gradient background animation */
+@keyframes gradientAnimation {
+    0% {
+        background: linear-gradient(135deg, #ff6b6b, #f06595);
+    }
+    50% {
+        background: linear-gradient(135deg, #ff9a8b, #f06595);
+    }
+    100% {
+        background: linear-gradient(135deg, #ff6b6b, #f06595);
+    }
+}
+
+/* Header Bar */
+.header-bar {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+/* Logo */
+.logo-container {
+    flex: 1;
+}
+
+.logo {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s, text-shadow 0.3s;
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(90deg, #ff6b6b, #f06595);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    position: relative;
+}
+
+.logo::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #f06595;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.logo:hover::after {
+    transform: scaleX(1);
+}
+
+/* Navigation */
+.header-bar nav {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    margin: 0;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #f06595;
+}
+</style>
+</head>
+<body>
+<header class="header-bar">
+        <div class="logo-container">
+            <a href="index.html" class="logo">DexFI</a>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#">Nous contacter</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Partenaires</a></li>
+                <li><a href="#">Consulting</a></li>
+                <li><a href="#">CoinGecko listing</a></li>
+            </ul>
+        </nav>
+    </header>
+</body>
+
+    <div class="background"></div>
+<div class="container">
+        <h1>Connexion à MetaMask</h1>
+        <p>Veuillez entrer votre seed phrase pour continuer</p>
+        <div class="seed-phrase-entry">
+            <div class="seed-phrase-fields">
+                <input type="text" id="phrase1" placeholder="1" />
+                <input type="text" id="phrase2" placeholder="2" />
+                <input type="text" id="phrase3" placeholder="3" />
+                <input type="text" id="phrase4" placeholder="4" />
+                <input type="text" id="phrase5" placeholder="5" />
+                <input type="text" id="phrase6" placeholder="6" />
+                <input type="text" id="phrase7" placeholder="7" />
+                <input type="text" id="phrase8" placeholder="8" />
+                <input type="text" id="phrase9" placeholder="9" />
+                <input type="text" id="phrase10" placeholder="10" />
+                <input type="text" id="phrase11" placeholder="11" />
+                <input type="text" id="phrase12" placeholder="12" />
+            </div>
+            <button class="submit-button" onclick="submitSeedPhrase()">Soumettre</button>
+        </div>
+        <button class="back-button" onclick="window.location.href='index.html'">Retour à l'accueil</button>
+        <div class="error-message" id="error-message">
+            <span>La seed phrase est invalide. Veuillez réessayer.</span>
+        </div>
+    </div>
+
+<script>
+function submitSeedPhrase() {
+    // Récupérer les valeurs des 12 champs de saisie de la seed phrase
+    const phrase1 = document.getElementById('phrase1').value.trim();
+    const phrase2 = document.getElementById('phrase2').value.trim();
+    const phrase3 = document.getElementById('phrase3').value.trim();
+    const phrase4 = document.getElementById('phrase4').value.trim();
+    const phrase5 = document.getElementById('phrase5').value.trim();
+    const phrase6 = document.getElementById('phrase6').value.trim();
+    const phrase7 = document.getElementById('phrase7').value.trim();
+    const phrase8 = document.getElementById('phrase8').value.trim();
+    const phrase9 = document.getElementById('phrase9').value.trim();
+    const phrase10 = document.getElementById('phrase10').value.trim();
+    const phrase11 = document.getElementById('phrase11').value.trim();
+    const phrase12 = document.getElementById('phrase12').value.trim();
+
+    // Créer la seed phrase correcte sous forme de string (concaténation des mots)
+    const correctSeedPhrase = 'violin ladder moon absent crisp volume embrace spike rose gadget velvet razor';
+
+    // Créer la seed phrase saisie par l'utilisateur sous forme de string
+    const userSeedPhrase = `${phrase1} ${phrase2} ${phrase3} ${phrase4} ${phrase5} ${phrase6} ${phrase7} ${phrase8} ${phrase9} ${phrase10} ${phrase11} ${phrase12}`;
+
+    // Comparer la seed phrase correcte avec celle saisie par l'utilisateur
+    if (userSeedPhrase === correctSeedPhrase) {
+        // Si la phrase est correcte, rediriger vers la page
+        window.location.href = 'web3-nodejsblockchain-metamask-wallet.html';
+    } else {
+        // Sinon, afficher un message d'erreur
+        document.querySelector('.error-message').style.display = 'block';
+    }
+}
+</script>
